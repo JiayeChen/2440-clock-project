@@ -3,7 +3,9 @@ void main(void)
     WDTCTL = WDTPW | WDTHOLD;               // Stop WDT
 
     
-
+    int hour;
+    int min;
+    int sec;
 
     // Configure RTC
     RTCCTL0_H = RTCKEY_H;                 // Unlock RTC key 
@@ -16,9 +18,9 @@ void main(void)
  
 
     
-    RTCHOUR = 0x10;                           // Hour = 0x10
-    RTCMIN = 0x32;                            // Minute = 0x32
-    RTCSEC = 0x45;                            // Seconds = 0x45
+    RTCHOUR = hour ;                          
+    RTCMIN = min;
+    RTCSEC = sec;                            
     RTCCTL0_H = 0;                            // lock it.This register should be written with A5h to unlock RTC. 
                                                // Any write with value other than A5h locks the module. Reads from this register always return 96h.
    
